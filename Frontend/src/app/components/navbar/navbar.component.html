@@ -1,0 +1,53 @@
+<nav class="navbar">
+  <div class="logo">
+    <a [routerLink]="['']">
+      <img src="img/logo_bg.png" alt="logo">
+    </a>
+  </div>
+
+  <ul class="menu" [ngClass]="{'active': menuOpen}">
+    <div>
+      <img class="productos" [ngClass]="{'inactive': !menuOpen}" src="img/productos.png" alt="productos">
+      <a [routerLink]="['products']"><li>Productos</li></a>
+    </div>
+    <div>
+      <img class="contacto" [ngClass]="{'inactive': !menuOpen}" src="img/contacto.png" alt="contacto">
+      <a href=""><li>Contacto</li></a>
+    </div>
+    <div>
+      <img class="nosotros" [ngClass]="{'inactive': !menuOpen}" src="img/nosotros.png" alt="nosotros">
+      <a href=""><li>Nosotros</li></a>
+    </div>
+  </ul>
+
+  <!-- Barra de búsqueda
+      <div class="search-bar">
+      <input type="text">
+      <button>
+        <img src="img/lupa.png" alt="">
+      </button>
+    </div>
+
+    <div class="loupe">
+      <img src="img/lupa.png" alt="">
+    </div>
+  -->
+
+  <div class="toggle-menu" [ngClass]="{'active' : menuOpen}" (click)="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <div class="x"  [ngClass]="{'active' : menuOpen}" (click)="toggleMenu()">
+    <div class="x-bar"></div>
+    <div class="x-bar"></div>
+  </div>
+
+  <button class="login-button">Iniciar Sesión</button>
+
+  <div class="overlay" [ngClass]="{'active': menuOpen}" (click)="toggleMenu()">
+
+  </div>
+
+</nav>

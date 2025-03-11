@@ -1,0 +1,266 @@
+$marron-principal: #5B3B20;
+$marron-secundario: #a9642b;
+$amarillo-principal: #edb10f;
+
+.navbar{
+  justify-content: space-between;
+  display: flex;
+  background-color: $marron-principal;
+  color: white;
+  align-items: center;
+  padding: 0 4rem;
+}
+
+.logo{
+
+  img{
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+  }
+
+}
+
+.menu{
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+
+  div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .inactive{
+      display: none;
+    }
+
+    .productos{
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    .contacto{
+      width: 40px;
+      height: 40px;
+      margin-top: 3px;
+      margin-right: 5px;
+    }
+
+
+
+    .nosotros{
+      width: 30px;
+      height: 25px;
+      margin-right: 10px;
+    }
+  }
+
+  li{
+    margin-right:2rem;
+  }
+
+  li:hover{
+    color: $amarillo-principal;
+  }
+
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+
+}
+
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 250px; /* Ajusta el ancho según necesites */
+  height: 40px;
+  margin-top: 20px;
+  background-color: white;
+
+  img {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  button{
+    margin-left: 2px;
+    background-color: lightblue;
+    height: 40px;
+    width: 100%;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+  }
+
+  button:hover{
+    cursor: pointer;
+    background-color: aqua;
+  }
+
+  input {
+    height: 30px;
+    width: 190px;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    margin-left: 10px;
+  }
+}
+
+.loupe{
+
+  img{
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+
+.login-button{
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 5px;
+  height: 40px;
+  padding: 0 15px;
+  border: 1px solid white;
+  background-color: $amarillo-principal;
+  font-weight: bold;
+}
+
+.login-button:hover{
+  cursor: pointer;
+  background-color: #fccf55;
+}
+
+.toggle-menu{
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+
+  .bar{
+    background-color: white;
+    height: 5px;
+    width: 100%;
+    margin: 3px 0;
+  }
+}
+
+.x {
+  display: none;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.x-bar {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  transition: all 0.3s ease;
+
+}
+
+.x-bar:first-child {
+  transform: translate(-50%, -50%) rotate(45deg);  /* Primer barra de la X */
+}
+
+.x-bar:last-child {
+  transform: translate(-50%, -50%) rotate(-45deg);  /* Segunda barra de la X */
+}
+
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s ease;
+}
+
+.overlay.active{
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar{
+    padding: 1rem;
+  }
+
+  .menu {
+    position: fixed;
+    top: -6%;
+    left: -100%;
+    width: 250px;
+    height: 106%;
+    background-color: $marron-principal;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+    padding: 0;
+    transition: left 0.3s ease-in-out;
+    z-index: 3;
+  }
+
+  .menu li {
+    margin: 1rem 0;
+    font-size: x-large;
+  }
+
+  .toggle-menu {
+    display: flex; /* Muestra el toggle en pantallas pequeñas */
+    margin-right: auto;
+    margin-left: 1.5rem;
+    z-index: 3;
+  }
+
+  .toggle-menu.active{
+    display: none;
+  }
+
+  .menu.active {
+    left: 0;
+  }
+
+  .x{
+    display: none;
+    margin-right: auto;
+    margin-left: 1.5rem;
+    z-index: 3;
+  }
+
+  .x.active{
+    display: flex;
+  }
+
+  .logo{
+    position: absolute;
+    left: 48%;
+    transform: translateX(-48%);
+  }
+
+  .login-button{
+    margin-left: 1rem;
+    padding: 0 5px;
+    height: 40px;
+  }
+}

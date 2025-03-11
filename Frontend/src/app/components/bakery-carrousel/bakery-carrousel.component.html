@@ -1,0 +1,12 @@
+<div class="carrousel-container">
+  <img src="img/Back.png" alt="Prev" class="prev" (click)="changeSlide(-1)">
+  <div class="products-container">
+
+    <div class="product-card" *ngFor="let product of visibleProducts">
+      <img [src]="product.image" alt="Imagen del producto">
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.price | currency }}</p>
+    </div>
+  </div>
+  <img src="img/Next.png" alt="Next" class="next" (click)="changeSlide(1)">
+</div>
